@@ -5,14 +5,20 @@ from django.db import models
 # Create your models here.
 class Brand(models.Model):
 	#b_id = models.IntegerField(primary_key = True, )
+	cname = models.CharField(max_length=200, default='nil')
 	name = models.CharField(max_length=200)
 	def __unicode__(self):
-		return self.name
+		return self.cname
+class CarModel(models.Model):
+	cmodel_name = models.CharField(max_length=200, default='nil')
+	brand = models.ForeignKey(Brand)
+	model_name = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.cmodel_name
     
 	
-class CarModel(models.Model):
-	brand = models.ForeignKey(Brand)
-	model_name = models.CharField(max_length=100, default='nil')
+class CarDetails(models.Model):
+	carmodel_name = models.ForeignKey(CarModel)
 	type = models.CharField(max_length=100, default='nil')
 	dengine = models.CharField(max_length=200, default='nil')
 	dpower = models.CharField(max_length=200, default='nil')
@@ -23,6 +29,6 @@ class CarModel(models.Model):
 	ptorque = models.CharField(max_length=200, default='nil')
 	ptransmission = models.CharField(max_length=200, default='nil')
 	text = models.TextField(default='nil')
-	
 	def __unicode__(self):
-		return self.model_name
+		return self.carmodel_name.cmodel_name
+	
