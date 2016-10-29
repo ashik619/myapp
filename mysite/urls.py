@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include,url
 from django.contrib import admin
 from carapp.views import RESTBrandList,RESTmodels,RESTCardetail
-import carapp.views
+from . import views
 
 
 urlpatterns = [
