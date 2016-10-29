@@ -20,8 +20,9 @@ from carapp.views import RESTBrandList,RESTmodels,RESTCardetail
 
 urlpatterns = [
 	url(r'^admin/', admin.site.urls),
-	url(r'^blog/', include('blog.urls')),
+	#url(r'^blog/', include('blog.urls')),
 	#url(r"^rest/(?P<pk>[0-9]+)/$",RESTmodels.as_view(),name="rsetapi"),
+	url(r'^$', views.post_list),
 	url(r"^rest/brands/$",RESTBrandList.as_view(),name="rsetapi"),
 	url(r'^rest/models/$', RESTmodels.as_view()),
 	url(r'^rest/cardetails/$', RESTCardetail.as_view()),
