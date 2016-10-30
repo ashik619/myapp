@@ -33,5 +33,5 @@ class RESTCardetail(generics.ListAPIView):
 			queryset = queryset.filter(carmodel_name__cmodel_name=carname)
 		return queryset
 	serializer_class = CarDetailSerializer
-def post_list(request):
-    return render(request, 'blog/post_list.html', {})
+def api_usage(request):
+    return render(request, 'carapp/post_list.html', {})
